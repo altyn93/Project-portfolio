@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфолио Графического Дизайнера</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <style>
+
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f7f7f7;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #7e57c2, #ab47bc);
+      color: white;
+      padding: 60px 20px;
+      animation: fadeIn 2s ease;
+      background-image: url(images/main%201.jpg);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    .contact-fixed {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      text-align: right;
+    }
+
+    .contact-fixed p {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .socials a {
+      margin-left: 10px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .socials a:hover {
+      text-decoration: underline;
+    }
+
+    .socials a i {
+      font-size: 24px;
+      transition: color 0.3s;
+    }
+
+    .socials a:hover i {
+      color: #bb2738;
+    }
+
+    .header-intro {
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      padding: 35px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #7e57c2;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ab47bc;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    #skills {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.skill-item {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+}
+
+.skill-item i {
+  font-size: 32px;
+  color: #7e57c2;
+  margin-bottom: 10px;
+}
+
+.skill-item span {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.skill-bar {
+  background: #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 10px;
+}
+
+.skill-fill {
+  height: 10px;
+  background: linear-gradient(to right, #7e57c2, #ab47bc);
+}
+
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    button {
+      background: #7e57c2;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #ab47bc;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* ... твои стили без изменений ... */
+
+    /* Добавляем стиль для кнопок языка */
+    .lang-switcher {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    .lang-switcher button {
+      background: #fff;
+      border: 2px solid #7e57c2;
+      color: #7e57c2;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .lang-switcher button:hover {
+      background: #7e57c2;
+      color: #fff;
+    }
+
+    /* Адаптивка для мобильных и планшетов */
+@media (max-width: 768px) {
+  header {
+    padding: 40px 15px;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .contact-fixed {
+    top: 15px;
+    right: 15px;
+  }
+
+  .contact-fixed p {
+    font-size: 0.9em;
+  }
+
+  .socials a i {
+    font-size: 20px;
+  }
+
+  .header-intro {
+    margin-top: 80px;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  nav a {
+    font-size: 1.1em;
+  }
+
+  .lang-switcher {
+    top: 10px;
+    right: 20px;
+    left: auto;
+    transform: none;
+    flex-direction: row;
+    gap: 5px;
+    z-index: 1000; /* чтобы всегда быть поверх, но не мешать */
+  }
+
+  .lang-switcher button {
+    padding: 4px 6px;
+    font-size: 12px;
+    border-width: 1px;
+  }
+
+  .logo img {
+    height: 45px; /* уменьшаем логотип для мобильных */
+  }
+
+  .contact-fixed {
+    top: 70px; /* немного ниже номер, чтобы все элементы дышали */
+    right: 20px;
+  }
+
+.lang-switcher button {
+  padding: 5px 8px;
+  font-size: 0.8em;
+}
+
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  form {
+    padding: 0 10px;
+  }
+
+  input, textarea {
+    font-size: 0.9em;
+  }
+
+  button {
+    font-size: 0.95em;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 30px 10px;
+  }
+
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  .contact-fixed p {
+    font-size: 0.8em;
+  }
+
+  nav a {
+    font-size: 1em;
+  }
+
+  .gallery img {
+    border-radius: 8px;
+  }
+
+  .skill-item {
+    padding: 15px;
+  }
+}
+
+#education {
+  padding: 50px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.education-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.edu-block {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  padding: 25px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.edu-block:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.edu-block p, .edu-block li {
+  margin-top: 10px;
+  font-size: 1em;
+}
+
+.course-list {
+  list-style: none;
+  padding: 0;
+}
+
+.course-list li {
+  margin: 10px 0;
+  position: relative;
+  padding-left: 25px;
+}
+
+.course-list li::before {
+  content: "🎨";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+ </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="images/logo 2.png" alt="Логотип" />
+  </div>
+  <div class="contact-fixed">
+    <p>+993 (61) 42 30 86</p>
+    <div class="socials">
+      <a href="https://t.me/altyn_8" target="_blank" aria-label="Telegram">
+        <i class="fab fa-telegram"></i>
+      </a>
+      <a href="https://instagram.com/altyna.1" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Language Switcher -->
+  <div class="lang-switcher">
+    <button onclick="changeLanguage('ru')">🇷🇺 Русский</button>
+    <button onclick="changeLanguage('en')">🇬🇧 English</button>
+  </div>
+
+  <div class="header-intro">
+    <h1 id="greeting">Привет, Я Алтын — графический дизайнер</h1>
+    <p id="welcome">Добро пожаловать в моё портфолио</p>
+  </div>
+</header>
+
+<nav>
+  <a href="#portfolio" id="portfolio-link">Портфолио</a>
+  <a href="#contact" id="contact-link">Контакты</a>
+  <a href="#education" id="education-link">Образование</a>
+  <a href="#skills" id="skills-link">Навыки</a>
+</nav>
+
+<section id="portfolio">
+  <h2 id="portfolio-title">Мои работы</h2>
+  <div class="gallery">
+    <!-- Твои работы без изменений -->
+    <img src="images/portfolio/карточка товара соковыж..jpg" alt="Project 1">
+    <img src="images/portfolio/Mingazov banner (1).jpg" alt="Project 2">
+    <img src="images/portfolio/kartochka увлажнитель.jpg" alt="Project 3">
+    <img src="images/portfolio/business card.jpg" alt="Project 4">
+    <img src="images/portfolio/Открытка.jpg" alt="Project 5">
+    <img src="images/portfolio/Буклет.jpg" alt="Project 6">
+    <img src="images/portfolio/фото реставрация 2.jpg" alt="Project 7">
+  </div>
+</section>
+
+<section id="education">
+  <h2 id="education-title">🎓 Образование</h2>
+
+  <div class="education-container">
+    <div class="edu-block">
+      <p><strong id="university-name">Туркменский государственный институт архитектуры и строительства</strong></p>
+      <p id="faculty">Факультет: Архитектурно строительный</p>
+      <p id="study-years">Годы обучения: 2013 — 2018</p>
+    </div>
+
+    <div class="edu-block">
+      <p><strong id="additional-education">Курсы и дополнительное образование:</strong></p>
+      <ul class="course-list" id="courses-list">
+        <li>Adobe Photoshop & Illustrator — углублённый курс</li>
+        <li>Figma — дизайн интерфейсов и прототипирование</li>
+        <li>Дизайн для бизнеса</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 id="skills-title">🛠 Навыки</h2>
+  <div class="skills-grid">
+    <!-- Навыки без изменений -->
+    <div class="skill-item">
+      <i class="fab fa-adobe"></i>
+      <span>Photoshop</span>
+      <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
+    </div>
+    <div class="skill-item">
+      <i class="fab fa-adobe"></i>
+      <span>Illustrator</span>
+      <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+    </div>
+    <div class="skill-item">
+      <i class="fab fa-figma"></i>
+      <span>Figma</span>
+      <div class="skill-bar"><div class="skill-fill" style="width: 75%;"></div></div>
+    </div>
+    <div class="skill-item">
+      <i class="fas fa-pencil-ruler"></i>
+      <span>Брендинг</span>
+      <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
+    </div>
+    <div class="skill-item">
+      <i class="fas fa-print"></i>
+      <span>Полиграфический дизайн</span>
+      <div class="skill-bar"><div class="skill-fill" style="width: 88%;"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 id="contact-title">Связаться со мной</h2>
+  <form id="contact-form" onsubmit="submitForm(event)">
+    <input type="text" placeholder="Ваше имя" name="name" required>
+    <input type="email" placeholder="Ваш email" name="email" required>
+    <textarea rows="5" placeholder="Сообщение или заказ" name="message" required></textarea>
+    <button type="submit">Отправить</button>
+  </form>
+</section>
+
+<script>
+  // EmailJS
+  (function() {
+    emailjs.init("aoPGgJTVLGenxfUPZ");
+  })();
+
+  function submitForm(e) {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.querySelector('[name="name"]').value;
+    const email = form.querySelector('[name="email"]').value;
+    const message = form.querySelector('[name="message"]').value;
+
+    emailjs.send("service_ukvct8w", "template_3zmu26a", {
+      name: name,
+      email: email,
+      message: message
+    })
+    .then(function(response) {
+      alert('Спасибо за ваше сообщение! Я скоро с вами свяжусь.');
+      form.reset();
+    }, function(error) {
+      alert('Произошла ошибка, пожалуйста, попробуйте снова.');
+    });
+  }
+
+  // Language translations
+  const translations = {
+    ru: {
+      greeting: "Привет, Я Алтын — графический дизайнер",
+      welcome: "Добро пожаловать в моё портфолио",
+      portfolio: "Портфолио",
+      contact: "Контакты",
+      education: "Образование",
+      skills: "Навыки",
+      contactMe: "Связаться со мной",
+      portfolioTitle: "Мои работы",
+      educationTitle: "🎓 Образование",
+      universityName: "Туркменский государственный институт архитектуры и строительства",
+      faculty: "Факультет: Архитектурно строительный",
+      studyYears: "Годы обучения: 2013 — 2018",
+      additionalEducation: "Курсы и дополнительное образование:",
+      skills: "Навыки",
+
+    },
+    en: {
+      greeting: "Hi, I'm Altyn — Graphic Designer",
+      welcome: "Welcome to my portfolio",
+      portfolio: "Portfolio",
+      contact: "Contact",
+      education: "Education",
+      skills: "Skills",
+      contactMe: "Contact Me",
+      portfolioTitle: "My Works",
+      educationTitle: "🎓 Education",
+      universityName: "Turkmen State Institute of Architecture and Construction",
+      faculty: "Faculty: Architecture and Construction",
+      studyYears: "Years of Study: 2013 — 2018",
+      additionalEducation: "Courses and Additional Education:",
+      skills: "Skills",
+    }
+  };
+
+  function changeLanguage(lang) {
+    document.getElementById('greeting').innerText = translations[lang].greeting;
+    document.getElementById('welcome').innerText = translations[lang].welcome;
+    document.getElementById('portfolio-link').innerText = translations[lang].portfolio;
+    document.getElementById('contact-link').innerText = translations[lang].contact;
+    document.getElementById('education-link').innerText = translations[lang].education;
+    document.getElementById('skills-link').innerText = translations[lang].skills;
+    document.getElementById('contact-title').innerText = translations[lang].contactMe;
+    document.getElementById('portfolio-title').innerText = translations[lang].portfolioTitle;
+    document.getElementById('education-title').innerText = translations[lang].educationTitle;
+    document.getElementById('university-name').innerText = translations[lang].universityName;
+    document.getElementById('faculty').innerText = translations[lang].faculty;
+    document.getElementById('study-years').innerText = translations[lang].studyYears;
+    document.getElementById('additional-education').innerText = translations[lang].additionalEducation;
+  }
+</script>
+
+<footer style="background: #7e57c2; color: white; padding: 30px 20px; text-align: center; margin-top: 30px; font-size: 0.9em;">
+    <div>
+      © 2025 Алтын | Все права защищены
+    </div>
+    <div style="margin-top: 10px;">
+      <a href="https://t.me/altyn_8" target="_blank" style="color: white; margin: 0 10px;"><i class="fab fa-telegram"></i></a>
+      <a href="https://instagram.com/altyna.1" target="_blank" style="color: white; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+ 
+</body>
+</html>
